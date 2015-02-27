@@ -2,10 +2,19 @@
 demeteorized_path="$(pwd)/.demeteorized"
 demeteorized_git="$demeteorized_path/.git"
 restore_git=false
+timestamp=$(date +%s)
 
-start () {
+update () {
+if [ -d "$demeteorized_path/node_modules/" ]; then
+  echo "Backing up node modules..."
+  mv "$demeteorized_path/node_modules/" "/tmp/node_modules_$timestamp"
+fi
+demeteorizer
 cd $demeteorized_path
-echo "start"
+
+if [ -d "/tmp/node_modules_$timestamp" ]; then
+  mv "/tmp/node_modules_$timestamp" "node_modules"
+fi
 }
 
 deploy () {
@@ -42,6 +51,6 @@ if [ $1 = "deploy" ]; then
 deploy
 fi
 
-if [ $1 = "start" ]; then
-start
+if [ $1 = "update" ]; then
+update
 fi
