@@ -55,7 +55,7 @@ git push -f deploy master
 demeteorized_path=".demeteorized"
 demeteorized_git="$demeteorized_path/.git"
 home_path=~
-nodegit_path="$home_path/nodegit"
+nodegit_path="$home_path/npm_package/nodegit"
 restore_git=false
 timestamp=$(date +%s)
 
