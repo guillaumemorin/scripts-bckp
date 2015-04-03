@@ -22,7 +22,7 @@ echo "$(tput setaf 1)Restarted$(tput sgr 0)"
 }
 
 start () {
-  MONGO_URL=mongodb://localhost:27017/test ROOT_URL=http://localhost:3000 PORT=3000 NODEGIT_PATH=$nodegit_path node $demeteorized_path/main.js &
+  MONGO_URL=mongodb://localhost:27017/preprod ROOT_URL=http://localhost:3000 PORT=3000 node $demeteorized_path/main.js &
 }
 
 deploy () {
